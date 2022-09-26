@@ -1,4 +1,9 @@
-import { FormEvent, useEffect, useState } from "react";
+import {
+  FormEvent,
+  useEffect,
+  useState,
+  useStateWithCallbackLazy,
+} from "react";
 import Modal from "./modal";
 
 type TicketType = {
@@ -44,24 +49,6 @@ const Ex = () => {
   };
   ticketsList.push(ticket1, ticket2, ticket3);
 
-  // 2 CRUD functions => on prod with DB | locally for the demo
-  const deleteTicket = (id: number) => {
-    fetch(process.env.REACT_APP_DBURL + "/tickets/" + id, {
-      method: "DELETE",
-    })
-      .then(() => {
-        console.log("ticket deleted ✅");
-        fetchTickets();
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-  const del = (id: number) => {
-    let newList = TicketsList?.filter((t) => t.id !== id);
-    setTicketsList(newList);
-  };
-
   const openModal = (t: TicketType | null) => {
     setModalData(t);
     setOpen(true);
@@ -88,6 +75,24 @@ const Ex = () => {
     });
     setTotal(total);
     return total;
+  };
+
+  // 2 CRUD functions => on prod with DB | locally for the demo
+  const deleteTicket = (id: number) => {
+    fetch(process.env.REACT_APP_DBURL + "/tickets/" + id, {
+      method: "DELETE",
+    })
+      .then(() => {
+        console.log("ticket deleted ✅");
+        fetchTickets();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const del = (id: number) => {
+    let newList = TicketsList?.filter((t) => t.id !== id);
+    setTicketsList(newList);
   };
 
   const fetchTickets = async () => {
@@ -117,6 +122,11 @@ const Ex = () => {
   useEffect(() => {
     fetchTickets();
   }, []);
+
+  useEffect(() => {
+    monthTotal();
+    allTimeTotal();
+  }, [TicketsList]);
 
   return (
     <section>

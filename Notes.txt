@@ -6,5 +6,7 @@ Temps : 1h30
 
 EXO2 ____
 
-Temps : 
+Temps : 3-4h
+
+* Réalisé avec une logique locale, les méthodes CRUD pour une logique avec API et BDD sont écrites (local||API = create||createTicket)
 

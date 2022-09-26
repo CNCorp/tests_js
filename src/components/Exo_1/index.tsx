@@ -159,7 +159,7 @@ const Ex = () => {
     <section>
       <h1 className="my-5">Exo 1 : Compagnie & Bureaux</h1>
       <button onClick={() => loop()} className="mt-5 mb-8">
-        Hire 5 random people
+        Hire random people til full (5 by 5)
       </button>
       <div>
         {Comp &&

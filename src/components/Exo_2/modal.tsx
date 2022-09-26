@@ -1,4 +1,4 @@
-import { FormEvent } from "react";
+import { FormEvent, useEffect } from "react";
 
 type TicketType = {
   // généré automatiquement si base de données
@@ -148,6 +148,7 @@ const Modal = ({
 
     allTimeTotal();
     monthTotal();
+
     setOpen(false);
   };
 
@@ -155,6 +156,11 @@ const Modal = ({
     let date = new Date(d);
     return date.toISOString().split("T")[0];
   };
+
+  useEffect(() => {
+    allTimeTotal();
+    monthTotal();
+  }, [TicketsList]);
 
   return (
     <div className="absolute top-1/3 right-0 left-0 z-50 w-3/4 m-auto h-modal">
@@ -172,6 +178,7 @@ const Modal = ({
         >
           <label htmlFor="article">Article</label>
           <input
+            required
             type="text"
             name="article"
             id="article"
@@ -179,6 +186,7 @@ const Modal = ({
           />
           <label htmlFor="date">Date</label>
           <input
+            required
             type="date"
             name="date"
             id="date"
@@ -186,6 +194,7 @@ const Modal = ({
           />
           <label htmlFor="price">Price</label>
           <input
+            required
             type="number"
             name="price"
             id="price"
