@@ -5,6 +5,7 @@
 Temps : 1h45
 
 * Formules erronées, à corriger et perfectionner si temps
+* Actuellement le taux d'espace libre donne la quantité de matériel non utilisé dans chaque bureau (tout matériel confondu)
 
 ## EXO2 ____
 
