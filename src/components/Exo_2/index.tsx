@@ -1,9 +1,4 @@
-import {
-  FormEvent,
-  useEffect,
-  useState,
-  useStateWithCallbackLazy,
-} from "react";
+import { FormEvent, useEffect, useState } from "react";
 import Modal from "./modal";
 
 type TicketType = {
@@ -22,10 +17,10 @@ const process = {
 
 const Ex = () => {
   const [Open, setOpen] = useState<boolean>(false);
-  const [ModalData, setModalData] = useState<TicketType | null>(null);
+  const [ModalData, setModalData] = useState<TicketType | undefined>();
   const [Total, setTotal] = useState<number>(0);
   const [MonthTotal, setMonthTotal] = useState<number>(0);
-  const [TicketsList, setTicketsList] = useState<TicketType[]>();
+  const [TicketsList, setTicketsList] = useState<TicketType[] | undefined>();
 
   let ticketsList: TicketType[] = [];
 
@@ -49,7 +44,7 @@ const Ex = () => {
   };
   ticketsList.push(ticket1, ticket2, ticket3);
 
-  const openModal = (t: TicketType | null) => {
+  const openModal = (t: TicketType | undefined) => {
     setModalData(t);
     setOpen(true);
   };
@@ -132,7 +127,7 @@ const Ex = () => {
     <section>
       <h1 className="my-5">Exo 2 : Tickets de caisse</h1>
       <hr></hr>
-      <button onClick={() => openModal(null)} className="mt-2">
+      <button onClick={() => openModal(undefined)} className="mt-2">
         📝
       </button>
       <div className="my-5">

@@ -9,8 +9,8 @@ type TicketType = {
 };
 
 type props = {
-  ticket: TicketType | null;
-  TicketsList: TicketType[];
+  ticket: TicketType | undefined;
+  TicketsList: TicketType[] | undefined;
   setTicketsList: (tickets: TicketType[]) => void;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   allTimeTotal: () => number;
@@ -25,40 +25,12 @@ const Modal = ({
   allTimeTotal,
   monthTotal,
 }: props) => {
-  const fetchTickets = async () => {
-    let res = await fetch(process.env.REACT_APP_DBURL + "/tickets");
-    let tickets = await res.json();
-    setTicketsList(tickets);
-  };
+  // const fetchTickets = async () => {
+  //   let res = await fetch(process.env.REACT_APP_DBURL + "/tickets");
+  //   let tickets = await res.json();
+  //   setTicketsList(tickets);
+  // };
 
-  const createTicket = async (ticket: TicketType) => {
-    // la date doit être unique, on mettra une constraint unique sur la date dans la DB
-    let notUniqueDate = TicketsList?.some(
-      (t: TicketType) =>
-        Date.parse(t.date.toString()) === Date.parse(ticket.date.toString())
-    );
-
-    if (notUniqueDate) {
-      window.alert("date must be unique");
-      console.log("date not unique");
-      return;
-    }
-
-    await fetch(process.env.REACT_APP_DBURL + "/tickets", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(ticket),
-    })
-      .then(() => {
-        console.log("ticket created ✅");
-        fetchTickets();
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
   const create = (e: any) => {
     e.preventDefault();
     let ticket = e.target;
@@ -75,10 +47,10 @@ const Modal = ({
       return;
     }
 
-    let id = TicketsList.length + 1;
+    let id = TicketsList && TicketsList.length + 1;
 
     let newticket: TicketType = {
-      id: id,
+      id: id as number,
       date: new Date(ticket.date.value),
       article: ticket.article.value,
       price: parseFloat(ticket.price.value),
@@ -88,38 +60,36 @@ const Modal = ({
     monthTotal();
     setOpen(false);
   };
-  const updateTicket = (id: number, newticket: TicketType) => {
-    // pour valider la date unique on doit exclure le ticket actuel de la verificatino si l'on souhaite laisser la même date
-    let excludeOldTicketList = TicketsList?.filter(
-      (t: TicketType) => t.id !== id
-    );
-    // validation de la contrainte d'unicité de la date
-    let notUniqueDate = excludeOldTicketList?.some(
-      (t: TicketType) =>
-        Date.parse(t.date.toString()) === Date.parse(newticket.date.toString())
-    );
 
-    if (notUniqueDate) {
-      window.alert("date must be unique");
-      console.log("date not unique");
-      return;
-    }
+  // const createTicket = async (ticket: TicketType) => {
+  //   // la date doit être unique, on mettra une constraint unique sur la date dans la DB
+  //   let notUniqueDate = TicketsList?.some(
+  //     (t: TicketType) =>
+  //       Date.parse(t.date.toString()) === Date.parse(ticket.date.toString())
+  //   );
 
-    fetch(process.env.REACT_APP_DBURL + "/tickets/" + id, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newticket),
-    })
-      .then(() => {
-        console.log("ticket updated ✅");
-        fetchTickets();
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  //   if (notUniqueDate) {
+  //     window.alert("date must be unique");
+  //     console.log("date not unique");
+  //     return;
+  //   }
+
+  //   await fetch(process.env.REACT_APP_DBURL + "/tickets", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(ticket),
+  //   })
+  //     .then(() => {
+  //       console.log("ticket created ✅");
+  //       fetchTickets();
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+
   const update = (id: number, e: any) => {
     e.preventDefault();
     let data = e.target;
@@ -140,17 +110,55 @@ const Modal = ({
       return;
     }
 
-    let oldticket = TicketsList?.findIndex((t: TicketType) => t.id === id);
+    if (TicketsList !== undefined) {
+      let oldticket = TicketsList?.findIndex((t: TicketType) => t.id === id);
 
-    TicketsList[oldticket].date = new Date(data.date.value);
-    TicketsList[oldticket].article = data.article.value;
-    TicketsList[oldticket].price = parseFloat(data.price.value);
+      TicketsList[oldticket].date = new Date(data.date.value);
+      TicketsList[oldticket].article = data.article.value;
+      TicketsList[oldticket].price = parseFloat(data.price.value);
+    } else {
+      console.log("TicketsList undefined");
+      return;
+    }
 
     allTimeTotal();
     monthTotal();
 
     setOpen(false);
   };
+
+  // const updateTicket = (id: number, newticket: TicketType) => {
+  //   // pour valider la date unique on doit exclure le ticket actuel de la verificatino si l'on souhaite laisser la même date
+  //   let excludeOldTicketList = TicketsList?.filter(
+  //     (t: TicketType) => t.id !== id
+  //   );
+  //   // validation de la contrainte d'unicité de la date
+  //   let notUniqueDate = excludeOldTicketList?.some(
+  //     (t: TicketType) =>
+  //       Date.parse(t.date.toString()) === Date.parse(newticket.date.toString())
+  //   );
+
+  //   if (notUniqueDate) {
+  //     window.alert("date must be unique");
+  //     console.log("date not unique");
+  //     return;
+  //   }
+
+  //   fetch(process.env.REACT_APP_DBURL + "/tickets/" + id, {
+  //     method: "PUT",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(newticket),
+  //   })
+  //     .then(() => {
+  //       console.log("ticket updated ✅");
+  //       fetchTickets();
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   const formatDate = (d: Date | string) => {
     let date = new Date(d);

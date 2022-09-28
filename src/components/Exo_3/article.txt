@@ -1,0 +1,32 @@
+Dart : quand saura-t-on si l’astéroïde a été dévié après le crash ?
+
+La première partie de la mission Dart a eu lieu : l’impacteur a heurté l’astéroïde binaire Didymos. Maintenant, une longue période d’observation s’ouvre, qui s’étalera sur quelques années.
+L’impacteur Dart n’est plus. Comme prévu, l’engin spatial a été précipité dans la nuit du 26 au 27 septembre sur Dimorphos, une sorte de « minilune » qui orbite autour de l’astéroïde Didymos. C’était son destin. Objectif de la manœuvre ? Répondre à la question : peut-on dévier la course d’un astéroïde en se servant de l’énergie cinétique ?
+
+IMPACT SUCCESS! Watch from #DARTMIssion’s DRACO Camera, as the vending machine-sized spacecraft successfully collides with asteroid Dimorphos, which is the size of a football stadium and poses no threat to Earth. pic.twitter.com/7bXipPkjWD
+
+— NASA (@NASA) September 26, 2022
+Dart est un engin pesant une demi-tonne, qui a foncé à près de 23 700 km/h avant de s’écraser sur Dimorphos. Cette combinaison entre la masse et la vitesse doit être suffisante pour perturber la trajectoire de l’astéroïde binaire au point de le contraindre à prendre une autre route. Et, le cas échéant, jusqu’à quel point la sonde a-t-elle eu une influence.
+
+Pour cette information, il faudra faire preuve de patience. Les astronomes ne pourront pas rendre leurs conclusions avant quelques semaines, voire plusieurs mois.
+
+3 minutes après : confirmation de l’impact
+La première consiste à vérifier que Dart a bien tapé Dimorphos. Pour cela, les astronomes peuvent compter sur le nanosatellite LICIACube, qui a été largué de l’impacteur une dizaine de jours auparavant. Trois minutes après la collision, LICIACube survole la zone pour constater l’impact (et le confirmer si tout s’est bien passé), prendre des photos si le cratère d’impact est visible et mesurer le panache qui a résulté du crash. LICIACube doit communiquer avec la Terre pendant un mois.
+
+mission DART didymos
+« Attention, j’arrive ! ». Vue d’artiste de la mission Dart. // Source : NASA/Johns Hopkins APL
+
+Dans les jours, semaines et mois qui suivent : observation depuis la Terre
+Si le crash a bien eu lieu, c’est une autre phase beaucoup plus longue qui va s’ouvrir. Depuis la Terre, les astronomes vont observer si ce choc organisé à 11 millions de km de distance a réussi, ce qui conforterait cette solution de défense planétaire. La collecte des données, l’interprétation des mesures et la vérification des résultats vont prendre du temps. Des jours, pour ne pas dire des semaines et des mois.
+
+Pourquoi est-ce si long ? Parce que même à vive allure et malgré sa masse, Dart semblera une petite pichenette sur Dimorphos, dont le diamètre mesure 170 mètres. Le choc dégagera toutefois une énergie équivalente à 3 tonnes de TNT. En comparaison, la bombe nucléaire larguée sur Hiroshima a délivré l’équivalent de 15 000 tonnes de TNT.
+
+La mesure depuis la Terre est rendue complexe par la distance, considérable. Pour cela, les astronomes vont suivre l’éclat de Didymos jour après jour, mais aussi les passages de Dimorphos devant et derrière l’astéroïde. Ces deux données vont permettre de calculer l’orbite de Dimorphos et son évolution autour de Didymos. Ces mesures doivent durer jusqu’à mars 2023.
+
+2024-2026 : mission Hera pour observer en détail l’astéroïde binaire et le cratère
+L’étude à distance sera complétée par une étude « sur place », avec l’envoi d’une mission européenne en octobre 2024 : Héra. Il lui faudra deux ans pour arriver sur zone et commencer le recueil des données de l’astéroïde binaire ainsi que du cratère laissé par Dart. On ne connaît pas bien la composition et les caractéristiques des deux corps.
+
+Dart embarquait peu d’instruments — essentiellement une caméra et un nanosatellite. En comparaison, Héra sera davantage armé. L’engin accueillera plusieurs outils, ainsi que des cubesats. L’observation directe du cratère sera aussi possible, ce qui permettra d’obtenir des indications sur sa profondeur et sa largeur.
+
+
+src : https://www.numerama.com/sciences/1124920-dart-sest-crashe-sur-lasteroide-et-maintenant.html
