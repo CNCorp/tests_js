@@ -179,7 +179,7 @@ const Modal = ({
         >
           ❌
         </button>
-        <h2 className="mb-5">{ticket ? "Update ticket" : "Create ticket"}</h2>
+        <h2 className="mb-5">{ticket ? "Modify receipt" : "Create receipt"}</h2>
         <form
           onSubmit={(e) => (ticket ? update(ticket.id, e) : create(e))}
           className="flex flex-col w-3/4 mx-auto"

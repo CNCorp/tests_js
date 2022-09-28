@@ -19,7 +19,7 @@ const Ex = () => {
   }, []);
   return (
     <section>
-      <h1 className="mb-8">Exo 3</h1>
+      <h1 className="mb-8">Read article</h1>
 
       <p className="mb-8"> Words count : {Text?.length}</p>
 

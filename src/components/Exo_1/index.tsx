@@ -157,29 +157,37 @@ const Ex = () => {
 
   return (
     <section>
-      <h1 className="my-5">Exo 1 : Compagnie & Bureaux</h1>
+      <h1 className="my-5">Company & Offices</h1>
       <button onClick={() => loop()} className="mt-5 mb-8">
-        Hire random people til full (5 by 5)
+        Hire random people til full (random / max 5)
       </button>
       <div>
         {Comp &&
           Comp.getOffices().map((o, index) => (
             <>
               <div key={index}>
-                <h2>{o.name} : </h2>
+                <h2 className="bold mb-3">{o.name} : </h2>
                 <h3>
-                  Taux espace dispo (calcule en réalité la qté de matériel non
-                  utilisé) : {o.tauxespacedispo()}
+                  Free space :{" "}
+                  <span className="bold">{o.tauxespacedispo()}</span>
                 </h3>
+                <p className="mb-2">
+                  (actually calculates quantity of unused stuff)
+                </p>
                 {Object.keys(o.display()).map((key, index) => {
-                  return (
-                    <p key={index} className={key === "people" ? "bold" : ""}>
-                      {key}: {o.display()[key]}
-                    </p>
-                  );
+                  if (key !== "name") {
+                    return (
+                      <p
+                        key={index}
+                        className={key === "people" ? "mt-3 bold" : ""}
+                      >
+                        {key}: {o.display()[key]}
+                      </p>
+                    );
+                  }
                 })}
               </div>
-              <hr />
+              <hr className="my-8" />
             </>
           ))}
       </div>

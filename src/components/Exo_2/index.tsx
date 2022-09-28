@@ -125,7 +125,7 @@ const Ex = () => {
 
   return (
     <section>
-      <h1 className="my-5">Exo 2 : Tickets de caisse</h1>
+      <h1 className="my-5">Receipts manager</h1>
       <hr></hr>
       <button onClick={() => openModal(undefined)} className="mt-2">
         📝

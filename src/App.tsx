@@ -12,14 +12,14 @@ function App() {
       <div className="App">
         <nav>
           <ul className="nav">
-            <li>
-              <Link to="/exo1">Exo 1 : Compagnie et Bureaux</Link>
+            <li className="mb-3">
+              <Link to="/exo1">Ex 1 : Company & Offices</Link>
+            </li>
+            <li className="mb-3">
+              <Link to="/exo2">Ex 2 : Receipts CRUD</Link>
             </li>
             <li>
-              <Link to="/exo2">Exo 2 : Tickets de caisse</Link>
-            </li>
-            <li>
-              <Link to="/exo3">Exo 3 : Lecture d'article</Link>
+              <Link to="/exo3">Ex 3 : Read Article</Link>
             </li>
           </ul>
         </nav>
