@@ -10,7 +10,7 @@ Temps : 1h45
 
 Temps : 3-4h
 
-* Réalisé avec une logique locale, les méthodes CRUD pour une logique avec API et BDD sont écrites (local||API = create||createTicket)
+* Réalisé avec une logique locale, les méthodes CRUD pour une logique avec API et BDD sont commentées et écrites de la manière suivantes : local || API = create || createTicket
 
 ## EXO3 ____
 
