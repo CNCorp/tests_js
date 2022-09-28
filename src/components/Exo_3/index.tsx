@@ -11,6 +11,7 @@ const Ex = () => {
     fetch(Article)
       .then((r) => r.text())
       .then((t) => {
+        // lodash
         let arr: string[] = _.words(t);
         console.log(arr);
         setText(arr);
