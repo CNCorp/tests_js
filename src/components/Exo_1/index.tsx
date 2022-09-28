@@ -88,6 +88,14 @@ const Ex = () => {
       return this.getOffices().every((office) => office.tauxespacedispo() <= 0);
     }
 
+    tauxespacedispo(): number {
+      let total = 0;
+      this.getOffices().forEach(
+        (office) => (total += office.tauxespacedispo())
+      );
+      return total;
+    }
+
     addOffice(office: typeof Office): void {
       if (office instanceof DevOffice) {
         this.devOffices.push(office);
@@ -162,6 +170,11 @@ const Ex = () => {
         Hire random people til full (random / max 5)
       </button>
       <div>
+        <p className="bold">Global free space : {Comp?.tauxespacedispo()}</p>
+        <p className="text-sm">
+          (free space actually calculates quantity of unused stuff)
+        </p>
+        <hr className="my-5" />
         {Comp &&
           Comp.getOffices().map((o, index) => (
             <>
@@ -171,9 +184,7 @@ const Ex = () => {
                   Free space :{" "}
                   <span className="bold">{o.tauxespacedispo()}</span>
                 </h3>
-                <p className="mb-2">
-                  (actually calculates quantity of unused stuff)
-                </p>
+                <p className="mb-2"></p>
                 {Object.keys(o.display()).map((key, index) => {
                   if (key !== "name") {
                     return (
